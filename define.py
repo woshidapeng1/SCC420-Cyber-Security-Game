@@ -32,19 +32,19 @@ BLUE = (0,0,255)
 GREEN = (0,255,0)
 
 select_ball = None
-# 初始化Pygame
+
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("游戏主界面")
-hint_text = 'This is the hint . . . .. . . . . .........................'#此处修改提示界面的说明，建议英文
-about_text = 'This is about some some, , , , , , , , , , , ,  , , , , ,  ,'#此处修改关于界面的说明，建议英文
+hint_text = 'This is the hint . . . .. . . . . .........................'
+about_text = 'This is about some some, , , , , , , , , , , ,  , , , , ,  ,'
 
-# 加载按钮图片
+
 background_img = pygame.image.load("./bgpic/bg_1.jpg")
-bg_2 = pygame.image.load("./bgpic/bg_2.png")
-bg_3 = pygame.image.load("./bgpic/bg_3.png")
-bg_4 = pygame.image.load("./bgpic/bg_4.png")
-bg_5 = pygame.image.load("./bgpic/bg_5.png")
+bg_2 = pygame.image.load("./bgpic/bg_2.jpg")
+bg_3 = pygame.image.load("./bgpic/bg_3.jpg")
+bg_4 = pygame.image.load("./bgpic/bg_4.jpg")
+bg_5 = pygame.image.load("./bgpic/bg_5.jpg")
 play_button_img = pygame.image.load("./bgpic/bt.png")
 back_button_img = pygame.image.load('./bgpic/back.png')
 start_button_img = pygame.image.load('./bgpic/sta.png')
@@ -57,15 +57,15 @@ bg_2 = pygame.transform.scale(bg_2, (SCREEN_WIDTH, SCREEN_HEIGHT))
 bg_3 = pygame.transform.scale(bg_3, (SCREEN_WIDTH, SCREEN_HEIGHT))
 bg_4 = pygame.transform.scale(bg_4, (SCREEN_WIDTH, SCREEN_HEIGHT))
 bg_5 = pygame.transform.scale(bg_5, (SCREEN_WIDTH, SCREEN_HEIGHT))
-# 调整按钮的大小
+
 play_button_img = pygame.transform.scale(play_button_img, (BUTTON_WIDTH, BUTTON_HEIGHT))
 back_button_img = pygame.transform.scale(back_button_img,(BACKB_WIDTH,BACKB_HEIGHT))
 start_button_img = pygame.transform.scale(start_button_img,(START_WIDTH,START_HEIGHT))
-lan_img = pygame.transform.scale(lan_img, (130,100))
-ball_img = pygame.transform.scale(ball_img, (50,50))
+lan_img = pygame.transform.scale(lan_img, (150,120))
+ball_img = pygame.transform.scale(ball_img, (80,80))
 star_button_img = pygame.transform.scale(star_img,(STAR_WIDTH,STAR_HEIGHT))
 
-# 设置按钮的位置
+
 play_button_rect = play_button_img.get_rect()
 play_button_rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 )
 hint_button_rect = play_button_img.get_rect()
@@ -97,7 +97,7 @@ def draw_text(screen, font, text, color, rect, aa=False, bkg=None):
     line_spacing = -2
       
 
-    # 逐行绘制文字
+ 
     for line in text.split("\n"):
         while line:
             for event in pygame.event.get():
@@ -122,7 +122,7 @@ def draw_text(screen, font, text, color, rect, aa=False, bkg=None):
             line = line[i:]
 
 def over_message_box():
-    """显示提示信息的窗口"""
+
     message = 'pass'
     messagebox_width = 300
     messagebox_height = 150
@@ -142,9 +142,9 @@ def over_message_box():
 
 
 def le_me(SCREEN_WIDTH,BUTTON_WIDTH,SCREEN_HEIGHT,BUTTON_HEIGHT,BUTTON_MARGIN):
-    # 游戏状态
-    game_state = "menu"  # 当前游戏状态，默认是主菜单
-    # 关卡按钮信息
+   
+    game_state = "menu"  
+    
     levels = ["Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6"]
     level_buttons_rect = []
     for i in range(len(levels)):
@@ -155,9 +155,9 @@ def le_me(SCREEN_WIDTH,BUTTON_WIDTH,SCREEN_HEIGHT,BUTTON_HEIGHT,BUTTON_MARGIN):
         level_buttons_rect.append(button_rect)
     return level_buttons_rect
 
-# 设置字体
+
 level_buttons_rect = le_me(SCREEN_WIDTH,BUTTON_WIDTH,SCREEN_HEIGHT,BUTTON_HEIGHT,BUTTON_MARGIN)
-# 判断鼠标是否点击在按钮上
+
 def check_button_click(mouse_pos, button_rect):
     if button_rect.collidepoint(mouse_pos):
         return True

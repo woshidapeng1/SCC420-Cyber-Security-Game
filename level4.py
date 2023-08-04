@@ -19,7 +19,7 @@ class Level4_2:
         question = "Which one is phishing email"
         
         font = pygame.font.Font('myfont.ttf', 20)
-        question_text = font.render(question, True, BLACK)
+        question_text = font.render(question, True, WHITE)
         question_rect = question_text.get_rect(left=50, top=self.question_y, width = 300,height = 300)
         question_rect.y = 50
         screen.blit(question_text, question_rect)

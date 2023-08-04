@@ -4,7 +4,7 @@ from classes import *
 from define import *
 
 num = 0
-level1_d = {'animals':["dog","cat","bird"],"fruits":["apple","orange","banana"],"tools":["hammer","saw"]}
+level1_d = {"Attacks":["Ddos","Spoofing","SQLi"],"Malware":["Trojans","Spyware","Viruses"],"SocialEngineering":["Phishing","Vishing"]}
 
 level1_dy = {}
 for basket in baskets:

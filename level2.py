@@ -17,8 +17,8 @@ def show_password_input():
     pygame.draw.rect(screen, (173, 216, 230), (dialog_x, dialog_y, dialog_width, dialog_height))
     pygame.draw.rect(screen, (0, 0, 0), (dialog_x, dialog_y, dialog_width, dialog_height), 2)
 
-    font = pygame.font.Font('myfont.ttf', 20)
-    title_text = font.render("Please input password", True, (255, 0, 0))
+    font = pygame.font.Font('myfont.ttf', 30)
+    title_text = font.render("Try A Strong Password", True, (0, 0, 0))
     title_rect = title_text.get_rect(center=(SCREEN_WIDTH // 2, dialog_y + 40))
 
     input_rect = pygame.Rect(dialog_x + 50, dialog_y + 100, dialog_width - 100, 40)

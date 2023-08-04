@@ -37,7 +37,7 @@ Level1_hint_text_L =["    In this level, you need to categorize all the balls an
     them into their corresponding baskets. Once you classify them correctly, you can pass the level!.",
     "    In this level, you need to categorize all the balls and place \
     them into their corresponding baskets. Once you classify them correctly, you can pass the level!."]  
-#此处修改关卡前提示页面的说明，上个列表中包含五项完全相同的内容
+
 def Le_Hint(Level1_hint_text):
     
     Level1_hint = LEVEL_HINT(350, 30, Level1_hint_text, pe_img,re_img,BLACK)

@@ -20,7 +20,7 @@ class Level_31:
         user_website = ""
         user_phone_number = ""
         # correct_website = "https://www.sainsburys.co.uk/shop/gb/groceries"
-        correct_website = 'https'
+        correct_website = 'http'
         # correct_phone_number = "193746825"
         correct_phone_number = '193'
         # active_in = True
@@ -99,19 +99,19 @@ class Level_31:
 
     def draw_level3(self):
         
-        font = pygame.font.Font('myfont.ttf', 15)
+        font = pygame.font.Font('myfont.ttf', 16)
             
         # level3()
-        encrypted_text = "moT raeD\n seirecorg/bg/pohs/ku.oc.syrubsnias.www//:sptth : knil eht si ereH !noitamrofni reffO cificepS remmuS weiv ot etisbew ruo tisiv nac uoY !elas no smeti erom evah dna slaicepS remmuS ruo dehcnual yltnecer eW.sreffo laiceps s'ynapmoc ruo ot gnibircsbus rof uoy knahT.528647391 ta enohpelet ro liame yb su tcatnoc ot eerf leef esaelp ,snoitseuq yna evah uoy\nfIsehsiW\ntseB ymmiJ"
+        encrypted_text = "moT raeD\n seirecorg/bg/pohs/ku.oc.syrubsnias\n.www//:sptth : knil eht si ereH\n !noitamrofni reffO cificepS remmuS weiv\n ot etisbew ruo tisiv nac uoY !elas no\n smeti erom evah dna slaicepS remmuS ruo\n dehcnual yltnecer eW.sreffo laiceps s'ynapmoc\n ruo ot gnibircsbus rof uoy knahT\n .528647391 ta enohpelet ro liame yb su tcatnoc ot\n eerf leef esaelp ,snoitseuq yna evah uoy\nfIsehsiW\ntseB ymmiJ"
         # 
-        text_rect = pygame.Rect(10, 25, SCREEN_WIDTH-20, SCREEN_HEIGHT)
+        text_rect = pygame.Rect(40, 55, SCREEN_WIDTH-20, SCREEN_HEIGHT-50)
 
         # 
-        self.draw_text(screen, font, encrypted_text, (255,255,255), text_rect)
-        website_text = font.render("What is the Website—— ", True, (255, 255, 255))
-        phone_number_title = font.render("What is the PhoneNumber—— ", True, (255, 255, 255))
-        screen.blit(website_text, (50, 450))
-        screen.blit(phone_number_title, (50, 400))
+        self.draw_text(screen, font, encrypted_text, (0,0,0), text_rect)
+        website_text = font.render("Company", True, (0, 0, 0))
+        phone_number_title = font.render("PhoneNumber ", True, (0, 0, 0))
+        screen.blit(website_text, (40, 450))
+        screen.blit(phone_number_title, (40, 400))
         dialog_width = 150
         dialog_height = 390
 

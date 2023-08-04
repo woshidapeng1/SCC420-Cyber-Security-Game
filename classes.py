@@ -58,11 +58,11 @@ class Ball:
         screen.blit(ball_img,self.rect)
         font = pygame.font.SysFont('宋体', 20)
         ball_text = font.render(self.category, True, (255,255,255))
-        screen.blit(ball_text, self.rect.move((50 - ball_text.get_width()) // 2, (50 - ball_text.get_height()) // 2))
+        screen.blit(ball_text, self.rect.move((80 - ball_text.get_width()) // 2, (80 - ball_text.get_height()) // 2))
 class Select:
     def __init__(self,height,width,font_size,option_gap,options,question):
         
-    # 题目和选项的文本和布局信
+
         self.font_size = font_size
         self.option_gap = option_gap
         self.height = height
@@ -78,7 +78,7 @@ class Select:
         line_spacing = -2
         
 
-        # 逐行绘制文字
+
         for line in text.split("\n"):
             while line:
                 for event in pygame.event.get():
@@ -102,57 +102,57 @@ class Select:
                 y += font.size(line)[1] + line_spacing
                 line = line[i:]
     def q(self):
-        # 绘制题目
+
         font = pygame.font.SysFont('serial', 50)
         question_text = font.render(self.question, True, BLACK)
         question_rect = question_text.get_rect(left=20, top=self.question_y, width = 350,height = 300)
-        self.draw_text(screen, font, self.question, (0,0,0), question_rect)
+        self.draw_text(screen, font, self.question, (255,255,255), question_rect)
     def op_2(self,mouse_pos):
         for i in range(len(self.options)):
             option_text = font.render(self.options[i], True, BLACK)
         for i in range(len(self.options)):
-            if self.options[i][0] in ["A", "B", "C", "D"]:  # 仅针对ABCD选项绘制选中框
+            if self.options[i][0] in ["A", "B", "C", "D"]:  
                 option_rect_o = option_text.get_rect(left=30, top=self.options_y + i * self.option_gap,width = 30)
                 if option_rect_o.collidepoint(mouse_pos):
                     selected_option = i
                         
-                    # 检查选择是否正确
+                  
                     if selected_option == 1:
-                        print("回答正确！")
+                        print("Yes！")
                         return 1
                     else:
-                        print("回答错误！")
+                        print("No！")
     def op_4(self,mouse_pos):
         for i in range(len(self.options)):
             option_text = font.render(self.options[i], True, BLACK)
         for i in range(len(self.options)):
-            if self.options[i][0] in ["A", "B", "C", "D"]:  # 仅针对ABCD选项绘制选中框
+            if self.options[i][0] in ["A", "B", "C", "D"]:  
                 option_rect_o = option_text.get_rect(left=30, top=self.options_y + i * self.option_gap,width = 30)
                 if option_rect_o.collidepoint(mouse_pos):
                     selected_option = i
                         
-                    # 检查选择是否正确
+                  
                     if selected_option == 2:
-                        print("回答正确！")
+                        print("Yes！")
                         return 1
                     else:
-                        print("回答错误！")
+                        print("No！")
     def draw_op(self):
         selected_option = -1
-        # 绘制选项文本
+        
         for i in range(len(self.options)):
-            option_text = font.render(self.options[i], True, BLACK)
+            option_text = font.render(self.options[i], True, WHITE)
             option_rect = option_text.get_rect(left=30, top=self.options_y + i * self.option_gap)  # 使文本左对齐
             screen.blit(option_text, option_rect)
         
         # 绘制选中框
         for i in range(len(self.options)):
-            if self.options[i][0] in ["A", "B", "C", "D"]:  # 仅针对ABCD选项绘制选中框
+            if self.options[i][0] in ["A", "B", "C", "D"]:  
                 option_rect_o = option_text.get_rect(left=30, top=self.options_y + i * self.option_gap,width = 30)
                 if i == selected_option:
-                    pygame.draw.rect(screen, GREEN, option_rect_o, 2)
+                    pygame.draw.rect(screen, RED, option_rect_o, 2)
                 else:
-                    pygame.draw.rect(screen, BLACK, option_rect_o, 2)
+                    pygame.draw.rect(screen, WHITE, option_rect_o, 2)
 class Level_5:
     def __init__(self,x,y,options,w_dragging,text_in):
         self.L_rect = pygame.Rect(x,y,200,25)
@@ -168,21 +168,21 @@ class Level_5:
         screen.blit(word_surface, self.L_rect)
 
 
-# 创建主界面和提示界面对象
-bg_screen = NewScreen("游戏主界面")
 
-basket1 = Basket(1, 400, 'animals')
-basket2 = Basket(135, 400, "fruits")
-basket3 = Basket(270, 400, "tools")
+bg_screen = NewScreen("Cyber Game")
+
+basket1 = Basket(1, 400, "Attacks")
+basket2 = Basket(135, 400, "Malware")
+basket3 = Basket(270, 400, "SocialEngineering")
 baskets = [basket1,basket2,basket3]
 
 
-ball1 = Ball(60, 200, "apple",25,False,False)
-ball2 = Ball(135, 200, "dog",25,False,False)
-ball3 = Ball(210, 200, "hammer",25,False,False)
-ball4 = Ball(285, 200, "orange",25,False,False)
-ball5 = Ball(60, 300, "cat",25,False,False)
-ball6 = Ball(135, 300, "banana",25,False,False)
-ball7 = Ball(210, 300, "saw",25,False,False)
-ball8 = Ball(285, 300, "bird",25,False,False)
+ball1 = Ball(10, 150, "Trojans",25,False,False)
+ball2 = Ball(110, 150, "Ddos",25,False,False)
+ball3 = Ball(210, 150, "Phishing",25,False,False)
+ball4 = Ball(310, 150, "Spyware",25,False,False)
+ball5 = Ball(10, 300, "Spoofing",25,False,False)
+ball6 = Ball(110, 300, "Viruses",25,False,False)
+ball7 = Ball(210, 300, "Vishing",25,False,False)
+ball8 = Ball(310, 300, "SQLi",25,False,False)
 balls = [ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8]
