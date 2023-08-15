@@ -44,7 +44,7 @@ matches = re.finditer(pattern, sentence)
 match_d = {}
 
 placeholder_rects = []
-xy = [[69,95],[236,134],[75,167],[155,188],[121,221],[130,293],[2,315]]
+xy = [[141,129],[22,185],[11,217],[175,240],[140,274],[184,345],[10,363]]
 s = 0
 for match in matches:
     start_index = match.start()
@@ -52,7 +52,7 @@ for match in matches:
     
 
     text_surface = font.render(match.group(), True, BLACK)
-    text_rect = text_surface.get_rect(width = 80,height = 10)
+    text_rect = text_surface.get_rect(width = 100,height = 20)
     match_d[s] = [text_rect,Level_5S_L[s].L_rect]
     text_rect.x = xy[s][0]
     text_rect.y = xy[s][1]

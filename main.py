@@ -9,7 +9,7 @@ from level4 import *
 from level5 import *
 from level_hint import *
 
-game_state = 'start5'
+game_state = 'start2'
 running = True
 clock = pygame.time.Clock()
 fps = 15
@@ -52,35 +52,36 @@ while running:
                     if check_button_click(mouse_pos,ball.rect):
                         ball.ball_dragging = True
             elif game_state == 'start2':
-                Level2_S.op_2(mouse_pos)
                 if Level2_S.op_2(mouse_pos):
                     show_password_input()
-
                     level_pass['Level 3'] = True
                     print (level_pass)
-                    over_message_box()
-                    pygame.time.delay(2000)
-                    pygame.display.flip()
                     game_state = 'level_selection'
             elif game_state == "start3":
                 Level_3S_2.level3(mouse_pos)
                 level_pass['Level 4'] = True
                 print (level_pass)
-                over_message_box()
-                pygame.time.delay(2000)
-                pygame.display.flip()
+
                 game_state = 'level_selection'
             elif game_state == 'start4':
-                Level4_S.op_4(mouse_pos)
                 if Level4_S.op_4(mouse_pos):
                     game_state = 'start_level4_2'
 
             elif game_state == 'start_level4_2':
-                Level4_S2.op(mouse_pos)
-                if Level4_S2.op(mouse_pos):
+                if Level4_S2.check(mouse_pos):
+                    game_state = 'start_level4_22'
+            elif game_state == 'start_level4_22':
+                if Level4_S2.check(mouse_pos):
+                    game_state = 'start_level4_23'
+            elif game_state == 'start_level4_23':
+                if Level4_S2.check(mouse_pos):
+                    game_state = 'start_level4_24'
+            elif game_state == 'start_level4_24':
+                if Level4_S2.check(mouse_pos):
+                    pass_num[3] += 1
                     level_pass['Level 5'] = True
                     print (level_pass)
-                    over_message_box()
+                    over_message_box(messages[0],pass_num[3])
                     pygame.time.delay(2000)
                     pygame.display.flip()
                     game_state = 'level_selection'
@@ -110,46 +111,52 @@ while running:
                                 level1_dy[basket.category].append(ball.category)
                                 print(level1_dy)
                                 break
-                if num == 8:
+                if num == 9:
                     n = 0
                     print('num',num)
                     for basket in level1_dy:
                         for ball in level1_dy[basket]:
                             if ball in level1_d[basket]:
                                 n += 1
-                    if n == 8:
+                    if n == 9:
+                        pass_num[0] += 1
                         level_pass['Level 2'] = True
                         print (level_pass)
-                        over_message_box()
+                        over_message_box(messages[0],pass_num[0])
+
                         pygame.time.delay(2000)
                         pygame.display.flip()
                         game_state = 'level_selection'
 
                     else:
-                        ball1 = Ball(10, 150, "Trojans",25,False,False)
-                        ball2 = Ball(110, 150, "Ddos",25,False,False)
-                        ball3 = Ball(210, 150, "Phishing",25,False,False)
-                        ball4 = Ball(310, 150, "Spyware",25,False,False)
-                        ball5 = Ball(10, 300, "Spoofing",25,False,False)
-                        ball6 = Ball(110, 300, "Viruses",25,False,False)
-                        ball7 = Ball(210, 300, "Vishing",25,False,False)
-                        ball8 = Ball(310, 300, "SQLi",25,False,False)
-                       
-                        balls = [ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8]
+                        pass_num[0] += 1
+                        wrong_message_box()
+                        pygame.display.flip()
+                        pygame.time.delay(1000)
+                        ball1 = Ball(50, 80, "Trojans",25,False,False)
+                        ball2 = Ball(160, 80, "Ddos",25,False,False)
+                        ball3 = Ball(270, 80, "Phishing",25,False,False)
+                        ball4 = Ball(50, 180, "Spyware",25,False,False)
+                        ball5 = Ball(160, 180, "Spoofing",25,False,False)
+                        ball6 = Ball(270, 180, "Viruses",25,False,False)
+                        ball7 = Ball(50, 280, "Vishing",25,False,False)
+                        ball8 = Ball(160, 280, "SQLi",25,False,False)
+                        ball9 = Ball(270, 280, "Baiting",25,False,False)
+                        balls = [ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8,ball9]
                         num = 0
                         level1_dy = {}
                         for basket in baskets:
                             level1_dy[basket.category] = []
 
-                        game_state = 'start1'
+                        game_state = 'start1' 
 
-                    pass_num[0] += 1
+                        
             for word_datas in Level_5S_L:
                 if word_datas.w_dragging:
                     word_datas.w_dragging = False
                     break
             if game_state == 'start5':
-                
+                print(mouse_pos)
                 for i in range(len(placeholder_rects)):
                     for j in range(len(placeholder_rects)):
                         if not Level_5S_L[i].text_in:
@@ -160,7 +167,7 @@ while running:
                                 print('placeholder_rects_L',placeholder_rects_L)
                                 # if i == j:
                                 Level_5S_L[i].text_in = True
-                                # print('deiiiiiiiiiiiiiiiiiii')
+                                print('deiiiiiiiiiiiiiiiiiii')
                                 
                                 # print('jjjjjjjjjjjjjjjjjjjjj',Level_5S_L[i].text_in)
                                 jjjjj+=1
@@ -171,13 +178,18 @@ while running:
                     for match in match_d:
                         if placeholder_rects_L[match] in match_d[match]:
                             y += 1
-                    if y == 7:
-                        over_message_box()
+                    if y == 6:
+                        pass_num[4] += 1
+                        over_message_box(messages[1],pass_num[4])
                         pygame.time.delay(2000)
                         pygame.display.flip()
                         game_state = 'winner'
                         print('Win！') 
                     else:
+                        pass_num[4] += 1
+                        wrong_message_box()
+                        pygame.display.flip()
+                        pygame.time.delay(1000)
                         s1 = Level_5(20,450, blanks[0],False,False)
                         s2 = Level_5(200,450, blanks[1],False,False)
                         s3 = Level_5(20,475, blanks[2],False,False)
@@ -186,6 +198,7 @@ while running:
                         s6 = Level_5(200,500, blanks[5],False,False)
                         s7 = Level_5(20,525, blanks[6],False,False)
                         Level_5S_L = [s1,s2,s3,s4,s5,s6,s7]
+                        placeholder_rects_L = []
                         jjjjj = 0
                         print('One more time')
                         game_state = 'start5'
@@ -240,7 +253,7 @@ while running:
         
     
     elif game_state == 'start1':
-        bg_screen.draw(background_img)
+        bg_screen.draw(bg_1)
         basket1.draw()
         basket2.draw()
         basket3.draw()
@@ -259,7 +272,7 @@ while running:
         sel = Level2_S.q()
         Level2_S.draw_op()
     elif game_state == "start3":
-        bg_screen.draw(bg_3)
+        bg_screen.draw(level_3_pic)
         Level_3S_2.draw_level3()
     elif game_state == 'start4':
         bg_screen.draw(bg_4)
@@ -268,7 +281,19 @@ while running:
     elif game_state == 'start_level4_2':
         bg_screen.draw(bg_4)
         Level4_S2.q()
-        Level4_S2.draw_op()
+        Level4_S2.draw_op(options[0])
+    elif game_state == 'start_level4_22':
+        bg_screen.draw(bg_4)
+        Level4_S2.q()
+        Level4_S2.draw_op(options[1])
+    elif game_state == 'start_level4_23':
+        bg_screen.draw(bg_4)
+        Level4_S2.q()
+        Level4_S2.draw_op(options[2])
+    elif game_state == 'start_level4_24':
+        bg_screen.draw(bg_4)
+        Level4_S2.q()
+        Level4_S2.draw_op(options[3])
     elif game_state == 'start5':
         bg_screen.draw(bg_5)
         # Text 

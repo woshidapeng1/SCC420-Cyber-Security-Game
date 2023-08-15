@@ -27,16 +27,11 @@ class LEVEL_HINT:
 
 pe_img = pygame.image.load('./bgpic/pe.png')
 re_img = pygame.image.load('./bgpic/re.png')
-Level1_hint_text_L =["    In this level, you need to categorize all the balls and place \
-    them into their corresponding baskets. Once you classify them correctly, you can pass the level!.",
-    "    In this level, you need to categorize all the balls and place \
-    them into their corresponding baskets. Once you classify them correctly, you can pass the level!.",
-    "    In this level, you need to categorize all the balls and place \
-    them into their corresponding baskets. Once you classify them correctly, you can pass the level!.",
-    "    In this level, you need to categorize all the balls and place \
-    them into their corresponding baskets. Once you classify them correctly, you can pass the level!.",
-    "    In this level, you need to categorize all the balls and place \
-    them into their corresponding baskets. Once you classify them correctly, you can pass the level!."]  
+Level1_hint_text_L =["    In this level, you need to categorize all the balls and place them into their corresponding baskets. Once you classify them correctly, you can pass the level!.",
+    "    Passwords are critical in cybersecurity, and a strong password allows your account to be better protected",
+    "    Encryption of text provides better privacy, you will see an encrypted email, try to find out what is valid in the email",
+    "    There is a lot of disinformation on the Internet, such as phishing websites and phishing emails, try to distinguish between them.",
+    "    Cyber security awareness training is important, you will be taken into a scenario and try to put the corresponding words into the text."]  
 
 def Le_Hint(Level1_hint_text):
     

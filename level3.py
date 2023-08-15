@@ -1,14 +1,15 @@
 import pygame
 import sys
 from define import *
+from classes import *
 
 class Level_31:
     def __init__(self):
         
         self.dialog_width = 150
-        self.dialog_height = 390
+        self.dialog_height = 465
         self.dialog_width2 = 150
-        self.dialog_height2 = 440
+        self.dialog_height2 = 515
         self.input_rect = pygame.Rect(self.dialog_width,self.dialog_height,200,35)
         self.input_rect2 = pygame.Rect(self.dialog_width2,self.dialog_height2,200,35)
     def level3(self,mouse_pos):
@@ -20,7 +21,8 @@ class Level_31:
         user_website = ""
         user_phone_number = ""
         # correct_website = "https://www.sainsburys.co.uk/shop/gb/groceries"
-        correct_website = 'http'
+        # correct_website = 'sainsburys'
+        correct_website = 'sainsbury'
         # correct_phone_number = "193746825"
         correct_phone_number = '193'
         # active_in = True
@@ -33,19 +35,28 @@ class Level_31:
                     pygame.quit()
                     sys.exit()
 
-                # 处理键盘事件
+                
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
                         
-                        # 判断输入是否正确
+                        
                         if user_website == correct_website and user_phone_number == correct_phone_number:
-                            
+                            pass_num[2] += 1
+                            over_message_box(messages[0],pass_num[2])
+                            pygame.time.delay(2000)
+                            pygame.display.flip()
                             running = False
                             
                         else:
-                            
+                            pass_num[2] += 1
+                            wrong_message_box()
+                            pygame.display.flip()
+                            pygame.time.delay(1000)
+                            bg_screen.draw(level_3_pic)
+                            self.draw_level3()
                             user_website = ""
                             user_phone_number = ""
+                            
                     elif event.key == pygame.K_BACKSPACE:
                         
                         if user_website != '' and (mouse_pos[0]>self.input_rect2.x and mouse_pos[0]<(self.input_rect2.x+self.dialog_width)) and (mouse_pos[1]>self.input_rect2.y and mouse_pos[1]<(self.input_rect2.y+self.dialog_height)):
@@ -102,21 +113,21 @@ class Level_31:
         font = pygame.font.Font('myfont.ttf', 16)
             
         # level3()
-        encrypted_text = "moT raeD\n seirecorg/bg/pohs/ku.oc.syrubsnias\n.www//:sptth : knil eht si ereH\n !noitamrofni reffO cificepS remmuS weiv\n ot etisbew ruo tisiv nac uoY !elas no\n smeti erom evah dna slaicepS remmuS ruo\n dehcnual yltnecer eW.sreffo laiceps s'ynapmoc\n ruo ot gnibircsbus rof uoy knahT\n .528647391 ta enohpelet ro liame yb su tcatnoc ot\n eerf leef esaelp ,snoitseuq yna evah uoy\nfIsehsiW\ntseB ymmiJ"
+        # encrypted_text = "moT raeD\n seirecorg/bg/pohs/ku.oc.syrubsnias\n.www//:sptth : knil eht si ereH\n !noitamrofni reffO cificepS remmuS weiv\n ot etisbew ruo tisiv nac uoY !elas no\n smeti erom evah dna slaicepS remmuS ruo\n dehcnual yltnecer eW.sreffo laiceps s'ynapmoc\n ruo ot gnibircsbus rof uoy knahT\n .528647391 ta enohpelet ro liame yb su tcatnoc ot\n eerf leef esaelp ,snoitseuq yna evah uoy\nfIsehsiW\ntseB ymmiJ"
         # 
-        text_rect = pygame.Rect(40, 55, SCREEN_WIDTH-20, SCREEN_HEIGHT-50)
+        # text_rect = pygame.Rect(40, 55, SCREEN_WIDTH-20, SCREEN_HEIGHT-50)
 
         # 
-        self.draw_text(screen, font, encrypted_text, (0,0,0), text_rect)
+        # self.draw_text(screen, font, encrypted_text, (0,0,0), text_rect)
         website_text = font.render("Company", True, (0, 0, 0))
         phone_number_title = font.render("PhoneNumber ", True, (0, 0, 0))
-        screen.blit(website_text, (40, 450))
-        screen.blit(phone_number_title, (40, 400))
+        screen.blit(website_text, (40, 520))
+        screen.blit(phone_number_title, (40, 470))
         dialog_width = 150
-        dialog_height = 390
+        dialog_height = 465
 
         dialog_width2 = 150
-        dialog_height2 = 440
+        dialog_height2 = 515
         font = pygame.font.Font('myfont.ttf', 15)
         input_rect = pygame.Rect(dialog_width,dialog_height, 200,35)
         pygame.draw.rect(screen, (255, 255, 255), input_rect)
